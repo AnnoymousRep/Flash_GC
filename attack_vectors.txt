@@ -1,0 +1,110 @@
+Dynamic Trigger
+<bsh.Interpreter: void readObject(java.io.ObjectInputStream)>
+-> getOut
+
+<sun.reflect.annotation.AnnotationInvocationHandler: void readObject(java.io.ObjectInputStream)>
+-> entrySet
+
+<javax.swing.text.AbstractDocument: void readObject(java.io.ObjectInputStream)>
+<javax.swing.text.AbstractDocument$BidiRootElement void <init>()>
+<javax.swing.text.AbstractDocument$BranchElement void <init>()>
+<javax.swing.text.AbstractDocument$AbstractElement void <init>()>
+-> getEmptySet
+
+<java.util.HashMap: void readObject(java.io.ObjectInputStream)>
+<java.util.HashMap: int hash(java.lang.Object)>
+-> hashCode
+
+<java.util.Collections$SetFromMap: void readObject(java.io.ObjectInputStream)>
+-> keySet
+
+<java.security.BasicPermissionCollection: void readObject(java.io.ObjectInputStream)>
+-> hashCode
+
+<java.lang.Throwable: void readObject(java.io.ObjectInputStream)>
+-> isEmpty
+
+<java.util.Hashtable: void readObject(java.io.ObjectInputStream)>
+-> hashCode
+
+<com.sun.org.apache.xerces.internal.dom.NamedNodeMapImpl: void readObject(java.io.ObjectInputStream)>
+-> toArray
+
+<java.util.concurrent.ConcurrentHashMap: void readObject(java.io.ObjectInputStream)>
+-> hashCode
+
+<java.util.HashSet: void readObject(java.io.ObjectInputStream)>
+-> hashCode
+
+<javax.swing.text.html.CSS: void readObject(java.io.ObjectInputStream)>
+-> hashCode
+
+<java.security.cert.CertPathValidatorException: void readObject(java.io.ObjectInputStream)>
+-> size
+
+<java.util.PriorityQueue: void readObject(java.io.ObjectInputStream)>
+<java.util.PriorityQueue: void heapify()>
+<java.util.PriorityQueue: void siftDown(int,java.lang.Object)>
+<java.util.PriorityQueue: void siftDownUsingComparator(int,java.lang.Object)>
+-> compare
+
+<sun.reflect.annotation.AnnotationInvocationHandler: void readObject(java.io.ObjectInputStream)>
+<java.util.TreeMap: java.lang.Object get(java.lang.Object)>
+<java.util.TreeMap: java.util.TreeMap$Entry getEntry(java.lang.Object)>
+<java.util.TreeMap: java.util.TreeMap$Entry getEntryUsingComparator(java.lang.Object)>
+-> compare
+
+Reflection to Sink
+RCE
+<sun.net.www.MimeLauncher: void run()>
+<java.lang.Runtime: java.lang.Process exec(java.lang.String)>
+
+SSRF
+<java.net.URL: java.lang.Object getContent()>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+<sun.misc.URLClassPath: java.net.URL checkURL(java.net.URL)>
+<sun.misc.URLClassPath: void check(java.net.URL)>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+<java.awt.SplashScreen: void setImageURL(java.net.URL)>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+<javax.swing.JEditorPane: java.io.InputStream getStream(java.net.URL)>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+<javax.swing.JEditorPane: void init(java.lang.String)>
+<javax.swing.JEditorPane: void setPage(java.lang.String)>
+<javax.swing.JEditorPane: void setPage(java.net.URL)>
+<javax.swing.JEditorPane: void getStream(java.net.URL)>
+
+<sun.awt.image.URLImageSource: void <init>(java.net.URL)>
+<sun.net.util.URLUtil: java.security.Permission getConnectPermission(java.net.URL)>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+<javax.swing.text.html.StyleSheet: void importStyleSheet(java.net.URL)>
+<java.net.URL: java.io.InputStream openStream()>
+<java.net.URL: java.net.URLConnection openConnection()>
+
+JDNI
+<javax.naming.spi.ContinuationDirContext: javax.naming.directory.Attributes getAttributes(java.lang.String)>
+<javax.naming.spi.ContinuationDirContext: javax.naming.spi.DirContextStringPair getTargetContext(java.lang.String)>
+<javax.naming.InitialContext: java.lang.Object lookup(java.lang.String)>
+
+<javax.naming.spi.ContinuationDirContext: javax.naming.spi.DirContextNamePair getTargetContext(javax.naming.Name)>
+<javax.naming.InitialContext: java.lang.Object lookup(javax.naming.Name)>
+
+FD
+<sun.awt.shell.ShellFolder: boolean delete()>
+<java.io.File: boolean delete()>
+
+<sun.font.Type1Font$T1DisposerRecord$1: java.lang.Object run()>
+<java.io.File: boolean delete()>
+
+CODE
+<com.sun.beans.finder.InstanceFinder: java.lang.Object find(java.lang.Class)>
+<com.sun.beans.finder.InstanceFinder: java.lang.Object instantiate(java.lang.Class,java.lang.String)>
+<java.lang.Class: java.lang.Object newInstance()>
+
+<sun.reflect.misc.ReflectUtil: java.lang.Object newInstance(java.lang.Class)>->[0]
+<java.lang.Class: java.lang.Object newInstance()>
